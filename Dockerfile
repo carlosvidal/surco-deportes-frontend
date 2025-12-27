@@ -10,6 +10,9 @@ RUN apk add --no-cache python3 make g++
 COPY package*.json ./
 RUN npm install
 
+# Install Rollup native binary for Alpine Linux
+RUN npm install --no-save @rollup/rollup-linux-x64-musl
+
 COPY . .
 RUN npm run build
 
